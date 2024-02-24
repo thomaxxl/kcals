@@ -8,15 +8,15 @@ This repo contains a demo for apilogicserver integration with keycloak oidc JWT 
 
 `docker-compose up`
 
-This will run 2 containers: 
-- keycloak
-- apilogicserver project
+This will run 2 containers on the docker host:
+- keycloak (http://localhost:8080)
+- apilogicserver project (http://localhost:5656)
 
 ## Test:
 
 ```bash
 # keycloak realm named "kcals"
-KC_BASE=http://127.0.0.1:8080/realms/kcals
+KC_BASE=http://localhost:8080/realms/kcals
 
 # oidc token endpoint
 TOKEN_ENDPOINT=$(curl ${KC_BASE}/.well-known/openid-configuration | jq -r .token_endpoint)
