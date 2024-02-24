@@ -34,11 +34,11 @@ curl http://localhost:5656/api/Category -H "Authorization: Bearer ${TOKEN}" | jq
 - the `$PWD/projects` was mounted at `/projects` in the ApiLogicServer container
 - A project named [`KCALS`](projects/KCALS) was created (default nw, with authentication):
 
-`
+```bash
 mkdir projects
 chmod 777 projects # we need to be able to write to this directory from the container
 docker run  $PWD/projects:/projects -it apilogicserver/api_logic_server bash -c "ApiLogicServer create --project_name=/projects/KCALS --db_url= ; ApiLogicServer add-auth --project_name=/projects/KCALS"
-` 
+```
 
 For users to be able to authenticate with JWTs signed by keycloak, we have to download the JWK signing key from keycloak and use that to validate the JWTs. 
 JWT validation is implemented in [projects/KCALS/security/system/authentication.py](projects/KCALS/security/system/authentication.py). 
