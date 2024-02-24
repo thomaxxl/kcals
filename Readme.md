@@ -8,6 +8,10 @@ This repo contains a demo for apilogicserver integration with keycloak oidc JWT 
 
 `docker-compose up`
 
+This will run 2 containers: 
+- keycloak
+- apilogicserver project
+
 ## Test:
 
 ```bash
