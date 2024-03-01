@@ -47,4 +47,4 @@ By default, apilogicserver authentication uses a user database. Our users are de
 
 ## React-Admin
 
-WIP
+Nginx is used to host the safrs-react-admin frontend at http://localhost/admin-app .
