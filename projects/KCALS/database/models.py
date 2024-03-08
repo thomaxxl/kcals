@@ -35,7 +35,8 @@ metadata = Base.metadata
 
 from sqlalchemy.dialects.sqlite import *
 
-
+from flask_jwt_extended import get_jwt
+from flask import has_request_context
 
 class Category(SAFRSBase, Base):
     __tablename__ = 'CategoryTableNameTest'
@@ -60,6 +61,11 @@ class Category(SAFRSBase, Base):
     @_check_sum_.setter
     def _check_sum_(self, value):  # type: ignore [no-redef]
         self._check_sum_property = value
+
+    @jsonapi_attr
+    def token(self):
+        if has_request_context():
+            return get_jwt()
 
     S_CheckSum = _check_sum_
 
